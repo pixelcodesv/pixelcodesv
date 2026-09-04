@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PixelCode.sv — Sitios web modernos para emprendedores en El Salvador</title>
+<meta name="description" content="Estudio de desarrollo web en El Salvador. Creamos sitios interactivos, rápidos y responsive para pequeños negocios, sin costos mensuales innecesarios.">
+
+<!-- Tailwind CSS vía CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- Tipografías: Sora (titulares) + Inter (cuerpo) + JetBrains Mono (etiquetas técnicas) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
+<script>
+  // Configuración de Tailwind: extendemos la paleta de marca y las tipografías
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bg: '#0A0E16',
+          surface: '#10151F',
+          surface2: '#161D2B',
+          line: '#212B3B',
+          turquoise: '#22E6C8',
+          blue: '#3B7CF6',
+          ink: '#E7ECF3',
+          muted: '#8FA0B8',
+        },
+        fontFamily: {
+          display: ['Sora', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+</head>
+
+<body class="bg-bg text-ink font-body antialiased">
+
+<!-- ======================= HEADER / NAVEGACIÓN ======================= -->
+<header id="site-header" class="fixed top-0 inset-x-0 z-50 border-b border-transparent transition-all duration-300">
+  <nav class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+    <a href="#inicio" class="font-display font-bold text-xl tracking-tight text-ink" data-nav-link>
+      Pixel<span class="text-turquoise">Code</span><span class="text-muted">.sv</span>
+    </a>
+
+    <!-- Enlaces desktop -->
+    <ul class="hidden lg:flex items-center gap-9 font-body text-sm text-muted">
+      <li><a href="#inicio" class="nav-link hover:text-ink transition-colors" data-nav-link>Inicio</a></li>
+      <li><a href="#nosotros" class="nav-link hover:text-ink transition-colors" data-nav-link>Nosotros</a></li>
+      <li><a href="#servicios" class="nav-link hover:text-ink transition-colors" data-nav-link>Servicios</a></li>
+      <li><a href="#portafolio" class="nav-link hover:text-ink transition-colors" data-nav-link>Portafolio</a></li>
+      <li><a href="#precios" class="nav-link hover:text-ink transition-colors" data-nav-link>Precios</a></li>
+      <li><a href="#contacto" class="nav-link hover:text-ink transition-colors" data-nav-link>Contacto</a></li>
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <a href="#contacto" data-nav-link
+         class="hidden sm:inline-flex items-center gap-2 bg-turquoise text-bg font-body font-semibold text-sm px-5 py-2.5 rounded-full hover:brightness-110 transition">
+        Cotizar proyecto
+      </a>
+      <!-- Botón menú móvil -->
+      <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" class="lg:hidden p-2 text-ink">
+        <i data-lucide="menu" id="icon-menu" class="w-6 h-6"></i>
+        <i data-lucide="x" id="icon-close" class="w-6 h-6 hidden"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Menú móvil desplegable -->
+  <div id="mobile-menu" class="lg:hidden max-h-0 overflow-hidden transition-all duration-300 bg-surface border-t border-line">
+    <ul class="flex flex-col px-6 py-4 gap-1 font-body text-sm">
+      <li><a href="#inicio" class="mobile-nav-link block py-3 text-muted hover:text-ink" data-nav-link>Inicio</a></li>
+      <li><a href="#nosotros" class="mobile-nav-link block py-3 text-muted hover:text-ink" data-nav-link>Nosotros</a></li>
+      <li><a href="#servicios" class="mobile-nav-link block py-3 text-muted hover:text-ink" data-nav-link>Servicios</a></li>
+      <li><a href="#portafolio" class="mobile-nav-link block py-3 text-muted hover:text-ink" data-nav-link>Portafolio</a></li>
+      <li><a href="#precios" class="mobile-nav-link block py-3 text-muted hover:text-ink" data-nav-link>Precios</a></li>
+      <li><a href="#contacto" class="mobile-nav-link block py-3 text-turquoise font-medium" data-nav-link>Cotizar proyecto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- ======================= HERO ======================= -->
+<section id="inicio" class="relative pt-40 pb-28 lg:pt-48 lg:pb-36 px-6 lg:px-10 overflow-hidden">
+  <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
+    <div class="lg:col-span-6">
+      <p class="font-mono text-xs text-turquoise mb-5">$ estudio-web --ubicacion=el-salvador</p>
+      <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.08] text-ink text-balance">
+        Impulsa tu negocio con una página web moderna, rápida e interactiva
+      </h1>
+      <p class="mt-6 text-lg text-muted max-w-xl leading-relaxed">
+        Diseñamos y construimos sitios a la medida de tu negocio, con código propio,
+        sin plantillas pesadas ni costos mensuales de hosting que no necesitas.
+        Tú vendes, nosotros nos encargamos de que tu sitio cargue rápido y funcione en cualquier celular.
+      </p>
+
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+        <a href="#portafolio" data-nav-link
+           class="inline-flex items-center gap-2 bg-turquoise text-bg font-semibold px-6 py-3.5 rounded-full hover:brightness-110 transition">
+          <i data-lucide="layout-grid" class="w-4 h-4"></i>
+          Ver portafolio
+        </a>
+        <a href="https://wa.me/50360281287?text=Hola%20PixelCode.sv%2C%20quiero%20cotizar%20un%20sitio%20web%20para%20mi%20negocio"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 border border-line text-ink font-semibold px-6 py-3.5 rounded-full hover:border-turquoise hover:text-turquoise transition">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          Hablar por WhatsApp
+        </a>
+      </div>
+
+      <div class="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted font-mono">
+        <span class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-turquoise"></i>Carga en menos de 1s</span>
+        <span class="flex items-center gap-2"><i data-lucide="smartphone" class="w-4 h-4 text-turquoise"></i>100% responsive</span>
+        <span class="flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-turquoise"></i>Sin cuotas ocultas</span>
+      </div>
+    </div>
+
+    <!-- Maqueta de editor de código, decorativa, construida en HTML/CSS -->
+    <div class="lg:col-span-6">
+      <div class="code-window mx-auto max-w-md lg:max-w-full">
+        <div class="code-window__bar">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+          <span class="ml-3 font-mono text-xs text-muted">tu-negocio.html</span>
+        </div>
+        <div class="code-window__body font-mono text-[13px] leading-relaxed">
+<pre><span class="tk-tag">&lt;section</span> <span class="tk-attr">class</span>=<span class="tk-str">"hero"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;h1&gt;</span><span class="tk-text">Panadería Doña Flor</span><span class="tk-tag">&lt;/h1&gt;</span>
+  <span class="tk-tag">&lt;p&gt;</span><span class="tk-text">Pan artesanal, entrega hoy</span><span class="tk-tag">&lt;/p&gt;</span>
+  <span class="tk-tag">&lt;a</span> <span class="tk-attr">href</span>=<span class="tk-str">"#pedidos"</span><span class="tk-tag">&gt;</span>
+    <span class="tk-text">Pedir por WhatsApp</span>
+  <span class="tk-tag">&lt;/a&gt;</span>
+<span class="tk-tag">&lt;/section&gt;</span>
+
+<span class="tk-comment">// compilando sitio…</span>
+<span class="tk-comment">✓ listo en 340ms</span></pre>
+          <span class="code-cursor"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= NOSOTROS / POR QUÉ ELEGIRNOS ======================= -->
+<section id="nosotros" class="py-24 lg:py-32 px-6 lg:px-10 border-t border-line">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl">
+      <h2 class="font-display font-bold text-3xl lg:text-4xl text-ink">
+        Un sitio hecho para vender, no solo para verse bonito
+      </h2>
+      <p class="mt-4 text-muted leading-relaxed">
+        Trabajamos con código propio en vez de constructores pesados. El resultado: sitios que cargan
+        casi al instante, se ven bien en cualquier celular y no dependen de suscripciones mensuales
+        que muchos emprendimientos terminan abandonando.
+      </p>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line rounded-2xl overflow-hidden border border-line">
+      <div class="feature-card bg-surface p-8">
+        <i data-lucide="gauge" class="w-6 h-6 text-turquoise"></i>
+        <h3 class="font-display font-semibold text-lg mt-5 text-ink">Velocidad de carga real</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">HTML, CSS y JS puros, sin frameworks pesados de por medio. Tu página abre antes de que el cliente pierda la paciencia.</p>
+      </div>
+      <div class="feature-card bg-surface p-8">
+        <i data-lucide="smartphone" class="w-6 h-6 text-turquoise"></i>
+        <h3 class="font-display font-semibold text-lg mt-5 text-ink">100% adaptable a celular</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">La mayoría de tus clientes te va a encontrar desde el teléfono. Cada sitio se prueba a fondo en pantallas pequeñas.</p>
+      </div>
+      <div class="feature-card bg-surface p-8">
+        <i data-lucide="wallet" class="w-6 h-6 text-turquoise"></i>
+        <h3 class="font-display font-semibold text-lg mt-5 text-ink">Cero costos ocultos</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">Sin licencias mensuales de constructores ni plugins de pago. Tú eres dueño de tu sitio, no un inquilino de una plataforma.</p>
+      </div>
+      <div class="feature-card bg-surface p-8">
+        <i data-lucide="message-square" class="w-6 h-6 text-turquoise"></i>
+        <h3 class="font-display font-semibold text-lg mt-5 text-ink">Contacto directo con tus clientes</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">Botones de WhatsApp y formularios pensados para que un visitante se convierta en pedido en un solo clic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SERVICIOS ======================= -->
+<section id="servicios" class="py-24 lg:py-32 px-6 lg:px-10 border-t border-line bg-surface/40">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12">
+    <div class="lg:col-span-4">
+      <h2 class="font-display font-bold text-3xl lg:text-4xl text-ink">Qué hacemos</h2>
+      <p class="mt-4 text-muted leading-relaxed max-w-sm">
+        Desde una landing page sencilla hasta un catálogo interactivo completo, adaptado
+        al tipo de negocio y a cómo compran realmente tus clientes.
+      </p>
+    </div>
+
+    <div class="lg:col-span-8 grid sm:grid-cols-2 gap-6">
+      <div class="service-row">
+        <i data-lucide="monitor" class="w-5 h-5 text-blue"></i>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Landing pages</h3>
+          <p class="text-sm text-muted mt-1">Una sola página, directa y enfocada en convertir visitas en clientes.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-blue"></i>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Catálogos interactivos</h3>
+          <p class="text-sm text-muted mt-1">Muestra tus productos con filtros, precios e imágenes sin depender de redes sociales.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <i data-lucide="message-circle" class="w-5 h-5 text-blue"></i>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Integración con WhatsApp Business</h3>
+          <p class="text-sm text-muted mt-1">Botones y formularios que llevan el pedido directo a tu chat, sin pasos extra.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <i data-lucide="file-text" class="w-5 h-5 text-blue"></i>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Formularios dinámicos</h3>
+          <p class="text-sm text-muted mt-1">Reservas, cotizaciones o pedidos, con validación y datos organizados.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <i data-lucide="globe" class="w-5 h-5 text-blue"></i>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Dominios y publicación</h3>
+          <p class="text-sm text-muted mt-1">Te ayudamos a elegir y configurar tu dominio propio, listo para compartir.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <i data-lucide="refresh-cw" class="w-5 h-5 text-blue"></i>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Mantenimiento y ajustes</h3>
+          <p class="text-sm text-muted mt-1">Cambios de contenido, precios o fotos cuando tu negocio lo necesite.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PORTAFOLIO ======================= -->
+<section id="portafolio" class="py-24 lg:py-32 px-6 lg:px-10 border-t border-line">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div class="max-w-xl">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-ink">Proyectos que hemos construido</h2>
+        <p class="mt-4 text-muted leading-relaxed">Ejemplos representativos del tipo de sitios que hacemos para negocios como el tuyo.</p>
+      </div>
+
+      <!-- Filtros de portafolio -->
+      <div id="filter-group" class="flex flex-wrap gap-2">
+        <button class="filter-btn is-active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="portafolios">Portafolios</button>
+        <button class="filter-btn" data-filter="equipos">Sitios de equipo</button>
+      </div>
+    </div>
+
+    <!-- Grid de proyectos -->
+    <div id="portfolio-grid" class="mt-12 grid sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-4xl">
+
+      <article class="portfolio-card" data-category="portafolios">
+        <div class="browser-mock">
+          <div class="browser-mock__bar"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span></div>
+          <div class="browser-mock__screen browser-mock__screen--1">
+            <span class="font-display font-bold text-sm">Rafael López</span>
+            <span class="font-mono text-[10px] opacity-70">portafolio de diseño gráfico</span>
+          </div>
+        </div>
+        <h3 class="font-display font-semibold text-ink mt-4">Portafolio de Diseño — UDB</h3>
+        <p class="text-sm text-muted mt-1">Portafolio interactivo de branding e identidad visual, con filtros por categoría y una herramienta en vivo para mezclar paletas de color.</p>
+        <div class="flex flex-wrap gap-2 mt-3 font-mono text-[11px] text-turquoise">
+          <span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JS</span><span class="tech-tag">GitHub Pages</span>
+        </div>
+        <a class="demo-btn" href="https://portafoliorafael.github.io/PortafolioRafael2026/" target="_blank" rel="noopener">
+          Ver demo en vivo <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+      </article>
+
+      <article class="portfolio-card" data-category="equipos">
+        <div class="browser-mock">
+          <div class="browser-mock__bar"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span></div>
+          <div class="browser-mock__screen browser-mock__screen--2">
+            <span class="font-display font-bold text-sm">Robotics Royale</span>
+            <span class="font-mono text-[10px] opacity-70">equipo de robótica</span>
+          </div>
+        </div>
+        <h3 class="font-display font-semibold text-ink mt-4">Robotics Royale — STEAM Maker Challenge</h3>
+        <p class="text-sm text-muted mt-1">Sitio de presentación para un equipo de robótica competitivo, pensado para compartirse en redes y mostrar al equipo en el STEAM Maker Challenge.</p>
+        <div class="flex flex-wrap gap-2 mt-3 font-mono text-[11px] text-turquoise">
+          <span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JS</span><span class="tech-tag">GitHub Pages</span>
+        </div>
+        <a class="demo-btn" href="https://pacomangini123.github.io/robotics-royale/" target="_blank" rel="noopener">
+          Ver demo en vivo <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+      </article>
+
+    </div>
+
+    <p id="empty-state" class="hidden text-center text-muted mt-12">Todavía no hay proyectos en esta categoría.</p>
+  </div>
+</section>
+
+<!-- ======================= PRECIOS ======================= -->
+<section id="precios" class="py-24 lg:py-32 px-6 lg:px-10 border-t border-line bg-surface/40">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl">
+      <h2 class="font-display font-bold text-3xl lg:text-4xl text-ink">Paquetes claros, sin sorpresas</h2>
+      <p class="mt-4 text-muted leading-relaxed">Elige el punto de partida según lo que tu negocio necesita hoy. Siempre podemos ajustar el alcance.</p>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-2 gap-6 max-w-4xl">
+      <!-- Paquete básico -->
+      <div class="price-card">
+        <h3 class="font-display font-semibold text-xl text-ink">Landing Page</h3>
+        <p class="text-sm text-muted mt-1">Ideal para presentar tu negocio y recibir pedidos por WhatsApp.</p>
+        <p class="mt-6 font-display font-bold text-4xl text-ink">$15<span class="text-base font-body text-muted font-normal"> pago único</span></p>
+        <ul class="mt-7 space-y-3 text-sm">
+          <li class="flex gap-2 text-ink"><i data-lucide="check" class="w-4 h-4 text-turquoise shrink-0"></i>Página única, responsive</li>
+          <li class="flex gap-2 text-ink"><i data-lucide="check" class="w-4 h-4 text-turquoise shrink-0"></i>Botón de WhatsApp integrado</li>
+          <li class="flex gap-2 text-ink"><i data-lucide="check" class="w-4 h-4 text-turquoise shrink-0"></i>Formulario de contacto</li>
+          <li class="flex gap-2 text-ink"><i data-lucide="check" class="w-4 h-4 text-turquoise shrink-0"></i>Configuración de dominio</li>
+          <li class="flex gap-2 text-muted"><i data-lucide="x" class="w-4 h-4 shrink-0"></i>Catálogo con filtros</li>
+        </ul>
+        <a href="#contacto" data-nav-link class="mt-8 block text-center border border-line rounded-full py-3 font-semibold hover:border-turquoise hover:text-turquoise transition">Elegir este paquete</a>
+      </div>
+
+      <!-- Paquete avanzado (destacado) -->
+      <div class="price-card price-card--featured">
+        <span class="font-mono text-[11px] text-turquoise">el más solicitado</span>
+        <h3 class="font-display font-semibold text-xl text-ink mt-1">Interactivo Avanzado</h3>
+        <p class="text-sm text-muted mt-1">Para negocios que venden por catálogo o necesitan más de una sección.</p>
+        <p class="mt-6 font-display font-bold text-4xl text-ink">$50<span class="text-base font-body text-muted font-normal"> pago único</span></p>
+        <ul class="mt-7 space-y-3 text-sm">
+          <li class="flex gap-2 text-ink"><i data-lucide="check" class="w-4 h-4 text-turquoise shrink-0"></i>Todo lo del paquete Landing Page</li>
+          <li class="flex gap-2 text-ink"><i data-lucide="check" class="w-4 h-4 text-turquoise shrink-0"></i>Catálogo interactivo con filtros</li>
+          <li class="flex gap-2 text-ink"><i data-lucide="check" class="w-4 h-4 text-turquoise shrink-0"></i>Formularios dinámicos personalizados</li>
+          <li class="flex gap-2 text-ink"><i data-lucide="check" class="w-4 h-4 text-turquoise shrink-0"></i>Animaciones e interacciones a medida</li>
+          <li class="flex gap-2 text-ink"><i data-lucide="check" class="w-4 h-4 text-turquoise shrink-0"></i>1 mes de ajustes incluido</li>
+        </ul>
+        <a href="#contacto" data-nav-link class="mt-8 block text-center bg-turquoise text-bg rounded-full py-3 font-semibold hover:brightness-110 transition">Elegir este paquete</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CONTACTO ======================= -->
+<section id="contacto" class="py-24 lg:py-32 px-6 lg:px-10 border-t border-line">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16">
+    <div class="lg:col-span-5">
+      <h2 class="font-display font-bold text-3xl lg:text-4xl text-ink">Cuéntanos sobre tu negocio</h2>
+      <p class="mt-4 text-muted leading-relaxed">
+        Completa el formulario y te escribimos por WhatsApp para conversar sobre tu proyecto,
+        sin compromiso.
+      </p>
+
+      <div class="mt-10 space-y-4 text-sm">
+        <div class="flex items-center gap-3 text-muted">
+          <i data-lucide="map-pin" class="w-4 h-4 text-turquoise"></i> El Salvador
+        </div>
+        <div class="flex items-center gap-3 text-muted">
+          <i data-lucide="phone" class="w-4 h-4 text-turquoise"></i> +503 6028-1287
+        </div>
+        <div class="flex items-center gap-3 text-muted">
+          <i data-lucide="instagram" class="w-4 h-4 text-turquoise"></i> @pixelcode.sv
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7">
+      <form id="contact-form" class="bg-surface border border-line rounded-2xl p-8 grid sm:grid-cols-2 gap-5" novalidate>
+        <div class="sm:col-span-1">
+          <label for="nombre" class="block text-sm text-muted mb-2">Nombre</label>
+          <input id="nombre" name="nombre" type="text" required
+                 class="w-full bg-bg border border-line rounded-lg px-4 py-3 text-sm text-ink placeholder:text-muted/60 focus:outline-none focus:border-turquoise transition"
+                 placeholder="Tu nombre">
+          <p class="field-error hidden">Escribe tu nombre.</p>
+        </div>
+
+        <div class="sm:col-span-1">
+          <label for="negocio" class="block text-sm text-muted mb-2">Nombre del negocio</label>
+          <input id="negocio" name="negocio" type="text" required
+                 class="w-full bg-bg border border-line rounded-lg px-4 py-3 text-sm text-ink placeholder:text-muted/60 focus:outline-none focus:border-turquoise transition"
+                 placeholder="Ej. Panadería Doña Flor">
+          <p class="field-error hidden">Escribe el nombre de tu negocio.</p>
+        </div>
+
+        <div class="sm:col-span-1">
+          <label for="telefono" class="block text-sm text-muted mb-2">Teléfono / WhatsApp</label>
+          <input id="telefono" name="telefono" type="tel" required
+                 class="w-full bg-bg border border-line rounded-lg px-4 py-3 text-sm text-ink placeholder:text-muted/60 focus:outline-none focus:border-turquoise transition"
+                 placeholder="6028-1287">
+          <p class="field-error hidden">Escribe un número de contacto.</p>
+        </div>
+
+        <div class="sm:col-span-1">
+          <label for="tipo" class="block text-sm text-muted mb-2">Tipo de proyecto</label>
+          <select id="tipo" name="tipo" required
+                  class="w-full bg-bg border border-line rounded-lg px-4 py-3 text-sm text-ink focus:outline-none focus:border-turquoise transition">
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="Landing Page">Landing Page</option>
+            <option value="Catálogo interactivo">Catálogo interactivo</option>
+            <option value="Sitio con formularios">Sitio con formularios</option>
+            <option value="No estoy seguro">No estoy seguro todavía</option>
+          </select>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="mensaje" class="block text-sm text-muted mb-2">Cuéntanos brevemente qué necesitas (opcional)</label>
+          <textarea id="mensaje" name="mensaje" rows="3"
+                    class="w-full bg-bg border border-line rounded-lg px-4 py-3 text-sm text-ink placeholder:text-muted/60 focus:outline-none focus:border-turquoise transition resize-none"
+                    placeholder="Ej. Quiero un catálogo de mis productos con precios"></textarea>
+        </div>
+
+        <div class="sm:col-span-2 flex items-center justify-between gap-4 mt-2">
+          <p id="form-status" class="text-sm text-muted"></p>
+          <button type="submit"
+                  class="inline-flex items-center gap-2 bg-turquoise text-bg font-semibold px-6 py-3.5 rounded-full hover:brightness-110 transition shrink-0">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            Enviar por WhatsApp
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="border-t border-line py-12 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="text-center sm:text-left">
+      <p class="font-display font-bold text-ink">Pixel<span class="text-turquoise">Code</span><span class="text-muted">.sv</span></p>
+      <p class="text-xs text-muted mt-1">&copy; <span id="year"></span> PixelCode.sv — Hecho en El Salvador 🇸🇻</p>
+    </div>
+    <div class="flex items-center gap-5">
+      <a href="https://instagram.com/pixelcode.sv" target="_blank" rel="noopener" aria-label="Instagram" class="text-muted hover:text-turquoise transition">
+        <i data-lucide="instagram" class="w-5 h-5"></i>
+      </a>
+      <a href="https://wa.me/50360281287" target="_blank" rel="noopener" aria-label="WhatsApp" class="text-muted hover:text-turquoise transition">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>
+      </a>
+      <a href="mailto:hola@pixelcode.sv" aria-label="Correo" class="text-muted hover:text-turquoise transition">
+        <i data-lucide="mail" class="w-5 h-5"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ======================= BOTÓN FLOTANTE DE WHATSAPP ======================= -->
+<a id="whatsapp-float"
+   href="https://wa.me/50360281287?text=Hola%20PixelCode.sv%2C%20me%20interesa%20cotizar%20un%20sitio%20web"
+   target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"
+   class="fixed bottom-6 right-6 z-40">
+  <i data-lucide="message-circle" class="w-6 h-6"></i>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
